@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Light theme */
+:root {
+  --background: #f0f4f8;
+  --foreground: #1a2332;
+  --card: #ffffff;
+  --card-foreground: #1a2332;
+  --popover: #ffffff;
+  --popover-foreground: #1a2332;
+  --primary: #7c9de0;
+  --primary-foreground: #0d1117;
+  --secondary: #e2e8f0;
+  --secondary-foreground: #1a2332;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #7c9de0;
+  --accent-foreground: #0d1117;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #cbd5e1;
+  --input: #cbd5e1;
+  --ring: #7c9de0;
+  --chart-1: #7c9de0;
+  --chart-2: #60a5fa;
+  --chart-3: #3b82f6;
+  --chart-4: #93c5fd;
+  --chart-5: #bfdbfe;
+  --radius: 0.625rem;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #1a2332;
+  --sidebar-primary: #7c9de0;
+  --sidebar-primary-foreground: #0d1117;
+  --sidebar-accent: #e2e8f0;
+  --sidebar-accent-foreground: #1a2332;
+  --sidebar-border: #cbd5e1;
+  --sidebar-ring: #7c9de0;
+
+  /* Custom portfolio tokens */
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --nav-active: #7c9de0;
+  --nav-text: #475569;
+  --hero-name: #4a76c9;
+  --band-experience: #a8c4f0;
+  --band-experience-foreground: #1a2332;
+  --band-about: #c8ced6;
+  --band-about-foreground: #1a2332;
+  --band-contact: #f5f0a0;
+  --band-contact-foreground: #1a2332;
+  --badge-bg: rgba(34, 197, 94, 0.15);
+  --badge-text: #16a34a;
+  --badge-dot: #22c55e;
+}
+
+/* Dark theme - matching gonblas.dev */
+.dark {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --card: #161b22;
+  --card-foreground: #c9d1d9;
+  --popover: #161b22;
+  --popover-foreground: #c9d1d9;
+  --primary: #7c9de0;
+  --primary-foreground: #0d1117;
+  --secondary: #1c2333;
+  --secondary-foreground: #c9d1d9;
+  --muted: #1c2333;
+  --muted-foreground: #8b949e;
+  --accent: #7c9de0;
+  --accent-foreground: #0d1117;
+  --destructive: #f85149;
+  --destructive-foreground: #ffffff;
+  --border: #21262d;
+  --input: #21262d;
+  --ring: #7c9de0;
+  --chart-1: #7c9de0;
+  --chart-2: #58a6ff;
+  --chart-3: #3b82f6;
+  --chart-4: #79c0ff;
+  --chart-5: #a5d6ff;
+  --sidebar: #0d1117;
+  --sidebar-foreground: #c9d1d9;
+  --sidebar-primary: #7c9de0;
+  --sidebar-primary-foreground: #0d1117;
+  --sidebar-accent: #1c2333;
+  --sidebar-accent-foreground: #c9d1d9;
+  --sidebar-border: #21262d;
+  --sidebar-ring: #7c9de0;
+
+  /* Custom portfolio tokens */
+  --nav-bg: rgba(13, 17, 23, 0.85);
+  --nav-active: #7c9de0;
+  --nav-text: #8b949e;
+  --hero-name: #7c9de0;
+  --band-experience: #7c9de0;
+  --band-experience-foreground: #0d1117;
+  --band-about: #b0b8c4;
+  --band-about-foreground: #0d1117;
+  --band-contact: #f5e642;
+  --band-contact-foreground: #0d1117;
+  --badge-bg: rgba(34, 197, 94, 0.15);
+  --badge-text: #4ade80;
+  --badge-dot: #22c55e;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', 'Geist Fallback', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Custom portfolio tokens */
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-active: var(--nav-active);
+  --color-nav-text: var(--nav-text);
+  --color-hero-name: var(--hero-name);
+  --color-band-experience: var(--band-experience);
+  --color-band-experience-foreground: var(--band-experience-foreground);
+  --color-band-about: var(--band-about);
+  --color-band-about-foreground: var(--band-about-foreground);
+  --color-band-contact: var(--band-contact);
+  --color-band-contact-foreground: var(--band-contact-foreground);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-badge-dot: var(--badge-dot);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
