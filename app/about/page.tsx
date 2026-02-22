@@ -1,42 +1,48 @@
+'use client'
+
 import { GraduationCap, MapPin, Code2, Coffee } from 'lucide-react'
-
-const skills = [
-  {
-    category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++', 'SQL'],
-  },
-  {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'HTML/CSS'],
-  },
-  {
-    category: 'Backend',
-    items: ['Node.js', 'Express', 'Django', 'PostgreSQL', 'MongoDB'],
-  },
-  {
-    category: 'Tools',
-    items: ['Git', 'Docker', 'Linux', 'Figma', 'CI/CD'],
-  },
-]
-
-const education = [
-  {
-    degree: 'B.S. Computer Science',
-    school: 'National University',
-    period: '2020 - 2025',
-    description:
-      'Focused on software engineering, algorithms, and data structures. Participated in competitive programming and open-source contributions.',
-  },
-]
+import { useLanguage } from '@/context/language-context'
+import { getTranslation } from '@/lib/translations'
 
 export default function AboutPage() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
+
+  const skills = [
+    {
+      category: t.about.skillCategories.languages,
+      items: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++', 'SQL'],
+    },
+    {
+      category: t.about.skillCategories.frontend,
+      items: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'HTML/CSS'],
+    },
+    {
+      category: t.about.skillCategories.backend,
+      items: ['Node.js', 'Express', 'Django', 'PostgreSQL', 'MongoDB'],
+    },
+    {
+      category: t.about.skillCategories.tools,
+      items: ['Git', 'Docker', 'Linux', 'Figma', 'CI/CD'],
+    },
+  ]
+
+  const education = [
+    {
+      degree: t.about.degree,
+      school: t.about.school,
+      period: t.about.educationPeriod,
+      description: t.about.educationDesc,
+    },
+  ]
+
   return (
     <div className="min-h-screen px-6 pt-28 pb-20">
       <div className="mx-auto max-w-5xl">
         {/* Bio Section */}
         <section>
           <h1 className="text-3xl font-bold text-foreground md:text-4xl">
-            About Me
+            {t.about.title}
           </h1>
           <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-12">
             {/* Avatar placeholder */}
@@ -46,20 +52,20 @@ export default function AboutPage() {
 
             <div className="flex-1">
               <p className="text-base leading-relaxed text-muted-foreground">
-                {"I'm a software engineer passionate about building accessible, pixel-perfect digital experiences. I enjoy working at the intersection of design and development, creating solutions that are not only functional but also a pleasure to use."}
+                {t.about.bio1}
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                {"When I'm not coding, you'll find me reading, hiking, playing chess, or diving into the latest tech rabbit hole. I believe in continuous learning and enjoy contributing to open-source projects."}
+                {t.about.bio2}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-4">
                 <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="size-4 text-primary" />
-                  Buenos Aires, Argentina
+                  {t.about.location}
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                   <Coffee className="size-4 text-primary" />
-                  Coffee enthusiast
+                  {t.about.coffeeEnthusiast}
                 </span>
               </div>
             </div>
@@ -69,7 +75,7 @@ export default function AboutPage() {
         {/* Skills Section */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Skills & Technologies
+            {t.about.skillsTitle}
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {skills.map((group) => (
@@ -98,7 +104,7 @@ export default function AboutPage() {
         {/* Education Section */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Education
+            {t.about.educationTitle}
           </h2>
           <div className="mt-10 flex flex-col gap-6">
             {education.map((edu) => (

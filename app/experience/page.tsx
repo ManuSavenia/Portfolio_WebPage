@@ -1,36 +1,41 @@
+'use client'
+
+import { useLanguage } from '@/context/language-context'
+import { getTranslation } from '@/lib/translations'
 import { ProjectCard } from '@/components/project-card'
 import { ExperienceTimeline } from '@/components/experience-timeline'
 
-const projects = [
-  {
-    title: 'SmartPoll',
-    description:
-      'An electronic voting system designed for educational purposes that integrates permissioned blockchain, digitally signed QR codes, and Anonymous Voting Tokens to guarantee security, transparency, and traceability.',
-    tags: ['Solidity', 'React', 'Node.js', 'Blockchain'],
-    link: '#',
-    imageColor: '#1c2333',
-  },
-  {
-    title: 'DeepRead',
-    description:
-      'A personal project that turns reading into an active learning process, allowing users to manage books and chapters, create summaries, and track their progress through dashboards.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
-    link: '#',
-    imageColor: '#161b22',
-  },
-]
-
 export default function ExperiencePage() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
+
+  const projects = [
+    {
+      title: t.experience.smartPoll.title,
+      description: t.experience.smartPoll.description,
+      tags: ['Solidity', 'React', 'Node.js', 'Blockchain'],
+      link: '#',
+      imageColor: '#1c2333',
+    },
+    {
+      title: t.experience.deepRead.title,
+      description: t.experience.deepRead.description,
+      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
+      link: '#',
+      imageColor: '#161b22',
+    },
+  ]
+
   return (
     <div className="min-h-screen px-6 pt-28 pb-20">
       <div className="mx-auto max-w-5xl">
         {/* Projects Section */}
         <section>
           <h1 className="text-3xl font-bold text-foreground md:text-4xl">
-            Projects
+            {t.experience.projectsTitle}
           </h1>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
-            A selection of projects I have built or contributed to.
+            {t.experience.projectsSubtitle}
           </p>
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
@@ -42,10 +47,10 @@ export default function ExperiencePage() {
         {/* Professional Experience Section */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Professional Experience
+            {t.experience.professionalTitle}
           </h2>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Where I have worked and what I have done.
+            {t.experience.professionalSubtitle}
           </p>
           <div className="mt-10">
             <ExperienceTimeline />

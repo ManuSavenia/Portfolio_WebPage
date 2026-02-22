@@ -2,35 +2,40 @@
 
 import Link from 'next/link'
 import { ArrowRight, Briefcase, User, Mail } from 'lucide-react'
-
-const sections = [
-  {
-    href: '/experience',
-    label: 'Experience',
-    icon: Briefcase,
-    bgClass: 'bg-band-experience',
-    textClass: 'text-band-experience-foreground',
-    description: 'Projects & professional experience',
-  },
-  {
-    href: '/about',
-    label: 'About Me',
-    icon: User,
-    bgClass: 'bg-band-about',
-    textClass: 'text-band-about-foreground',
-    description: 'Who I am & what I do',
-  },
-  {
-    href: '/contact',
-    label: 'Contact',
-    icon: Mail,
-    bgClass: 'bg-band-contact',
-    textClass: 'text-band-contact-foreground',
-    description: 'Get in touch with me',
-  },
-]
+import { useLanguage } from '@/context/language-context'
+import { getTranslation } from '@/lib/translations'
 
 export function SectionBands() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
+
+  const sections = [
+    {
+      href: '/experience',
+      labelKey: 'experience',
+      icon: Briefcase,
+      bgClass: 'bg-band-experience',
+      textClass: 'text-band-experience-foreground',
+      descriptionKey: 'experienceDesc',
+    },
+    {
+      href: '/about',
+      labelKey: 'about',
+      icon: User,
+      bgClass: 'bg-band-about',
+      textClass: 'text-band-about-foreground',
+      descriptionKey: 'aboutDesc',
+    },
+    {
+      href: '/contact',
+      labelKey: 'contact',
+      icon: Mail,
+      bgClass: 'bg-band-contact',
+      textClass: 'text-band-contact-foreground',
+      descriptionKey: 'contactDesc',
+    },
+  ]
+
   return (
     <section className="mx-auto w-full max-w-5xl px-6 pb-16">
       <div className="overflow-hidden rounded-xl border border-border/50">
@@ -45,8 +50,12 @@ export function SectionBands() {
             <div className="flex items-center gap-4">
               <section.icon className="size-6 opacity-70 md:size-7" />
               <div>
-                <h2 className="text-xl font-semibold md:text-2xl">{section.label}</h2>
-                <p className="mt-1 text-sm opacity-70">{section.description}</p>
+                <h2 className="text-xl font-semibold md:text-2xl">
+                  {t.sections[section.labelKey as keyof typeof t.sections]}
+                </h2>
+                <p className="mt-1 text-sm opacity-70">
+                  {t.sections[section.descriptionKey as keyof typeof t.sections]}
+                </p>
               </div>
             </div>
             <ArrowRight className="size-5 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-70 md:size-6" />

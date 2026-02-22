@@ -3,36 +3,46 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Monitor, Sun, Moon, Menu, X } from 'lucide-react'
+import { useLanguage } from '@/context/language-context'
+import { getTranslation } from '@/lib/translations'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/about', label: 'About' },
+  { href: '/', key: 'home' },
+  { href: '/experience', key: 'experience' },
+  { href: '/contact', key: 'contact' },
+  { href: '/about', key: 'about' },
 ]
 
 export function Navbar() {
   const pathname = usePathname()
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const { language, toggleLanguage } = useLanguage()
+  const translations = getTranslation(language)
   const [mounted, setMounted] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [themeMenuOpen, setThemeMenuOpen] = useState(false)
+  const themeMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const cycleTheme = () => {
-    if (theme === 'system') {
-      setTheme('light')
-    } else if (theme === 'light') {
-      setTheme('dark')
-    } else {
-      setTheme('system')
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        themeMenuRef.current &&
+        !themeMenuRef.current.contains(event.target as Node)
+      ) {
+        setThemeMenuOpen(false)
+      }
     }
-  }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const ThemeIcon = () => {
     if (!mounted) return <Monitor className="size-5" />
@@ -40,6 +50,12 @@ export function Navbar() {
     if (theme === 'light') return <Sun className="size-5" />
     return <Moon className="size-5" />
   }
+
+  const themeOptions = [
+    { value: 'light', icon: Sun, label: 'Light' },
+    { value: 'system', icon: Monitor, label: 'System' },
+    { value: 'dark', icon: Moon, label: 'Dark' },
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--nav-bg)] backdrop-blur-md border-b border-border/50">
@@ -69,30 +85,60 @@ export function Navbar() {
                     ? 'bg-primary/15 text-primary'
                     : 'text-[var(--nav-text)] hover:bg-secondary hover:text-foreground'
                 )}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
+      >
+        {translations.nav[link.key as keyof typeof translations.nav]}
+      </Link>
+    )
+  })}
 
           {/* Separator */}
           <div className="mx-2 h-5 w-px bg-border" />
 
-          {/* Theme Toggle */}
-          <button
-            onClick={cycleTheme}
-            className="rounded-lg p-2 text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
-            aria-label="Toggle theme"
-          >
-            <ThemeIcon />
-          </button>
+          {/* Theme Selector */}
+          <div className="relative" ref={themeMenuRef}>
+            <button
+              onClick={() => setThemeMenuOpen(!themeMenuOpen)}
+              className="rounded-lg p-2 text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
+              aria-label="Select theme"
+            >
+              <ThemeIcon />
+            </button>
+
+            {themeMenuOpen && (
+              <div className="absolute right-0 mt-2 flex gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+                {themeOptions.map((option) => {
+                  const Icon = option.icon
+                  return (
+                    <button
+                      key={option.value}
+                      onClick={() => {
+                        setTheme(option.value)
+                        setThemeMenuOpen(false)
+                      }}
+                      className={cn(
+                        'rounded p-2 transition-colors',
+                        theme === option.value
+                          ? 'bg-primary/15 text-primary'
+                          : 'text-muted-foreground hover:text-foreground'
+                      )}
+                      title={option.label}
+                      aria-label={option.label}
+                    >
+                      <Icon className="size-4" />
+                    </button>
+                  )
+                })}
+              </div>
+            )}
+          </div>
 
           {/* Language Toggle */}
           <button
+            onClick={toggleLanguage}
             className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
             aria-label="Toggle language"
           >
-            EN
+            {language.toUpperCase()}
           </button>
         </div>
 
@@ -121,27 +167,58 @@ export function Navbar() {
                     'rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
                     isActive
                       ? 'bg-primary/15 text-primary'
-                      : 'text-[var(--nav-text)] hover:bg-secondary hover:text-foreground'
+                      : 'text-nav-text hover:bg-secondary hover:text-foreground'
                   )}
                 >
-                  {link.label}
+                  {translations.nav[link.key as keyof typeof translations.nav]}
                 </Link>
               )
             })}
+
             <div className="my-2 h-px bg-border" />
             <div className="flex items-center gap-2 px-4">
+              <div className="relative" ref={themeMenuRef}>
+                <button
+                  onClick={() => setThemeMenuOpen(!themeMenuOpen)}
+                  className="rounded-lg p-2 text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
+                  aria-label="Select theme"
+                >
+                  <ThemeIcon />
+                </button>
+
+                {themeMenuOpen && (
+                  <div className="absolute left-0 mt-2 flex gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+                    {themeOptions.map((option) => {
+                      const Icon = option.icon
+                      return (
+                        <button
+                          key={option.value}
+                          onClick={() => {
+                            setTheme(option.value)
+                            setThemeMenuOpen(false)
+                          }}
+                          className={cn(
+                            'rounded p-2 transition-colors',
+                            theme === option.value
+                              ? 'bg-primary/15 text-primary'
+                              : 'text-muted-foreground hover:text-foreground'
+                          )}
+                          title={option.label}
+                          aria-label={option.label}
+                        >
+                          <Icon className="size-4" />
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
               <button
-                onClick={cycleTheme}
-                className="rounded-lg p-2 text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
-                aria-label="Toggle theme"
-              >
-                <ThemeIcon />
-              </button>
-              <button
+                onClick={toggleLanguage}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--nav-text)] transition-colors hover:bg-secondary hover:text-foreground"
                 aria-label="Toggle language"
               >
-                EN
+                {language.toUpperCase()}
               </button>
             </div>
           </div>

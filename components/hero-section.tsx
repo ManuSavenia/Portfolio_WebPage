@@ -2,55 +2,74 @@
 
 import { Download, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useLanguage } from '@/context/language-context'
+import { getTranslation } from '@/lib/translations'
 
 export function HeroSection() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
+
+  const handleDownloadCV = () => {
+    const cvFiles = {
+      en: {
+        path: '/Cvs/Curriculum_Vitae_English.pdf',
+        name: 'Manuel_Savenia_CV_EN.pdf',
+      },
+      es: {
+        path: '/Cvs/Curriculum_Vitae_Spanish.pdf',
+        name: 'Manuel_Savenia_CV_ES.pdf',
+      },
+    }
+
+    const cv = cvFiles[language]
+    const link = document.createElement('a')
+    link.href = cv.path
+    link.download = cv.name
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <section className="flex min-h-[65vh] flex-col justify-center px-6 pt-20">
       <div className="mx-auto w-full max-w-5xl">
         {/* Greeting */}
-        <div className="flex items-center gap-4">
-          <p className="text-lg font-medium text-foreground md:text-xl">
-            {"Hi, There! I'm"}
-          </p>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-dot)]/30 bg-[var(--badge-bg)] px-3 py-1 text-xs font-medium text-[var(--badge-text)]">
-            <span className="size-1.5 rounded-full bg-[var(--badge-dot)]" />
-            Open to work
-          </span>
-        </div>
+        <p className="text-lg font-medium text-foreground md:text-xl">
+          {t.hero.greeting}
+        </p>
 
         {/* Name */}
         <h1 className="mt-2 text-5xl font-bold tracking-tight text-[var(--hero-name)] md:text-7xl lg:text-8xl text-balance">
-          John Doe
+          Manuel Savenia
         </h1>
 
         {/* Bio */}
         <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-          Software Engineer with a passion for building elegant solutions. Ready to face any challenge.
+          {t.hero.bio}
         </p>
 
         {/* CTA Buttons */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button
             size="lg"
+            onClick={handleDownloadCV}
             className="bg-primary text-primary-foreground hover:bg-primary/85 gap-2 rounded-lg px-6 font-medium"
           >
-            Download CV
+            {language === 'en' ? 'Download CV' : 'Descargar CV'}
             <Download className="size-4" />
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="gap-2 rounded-lg border-border px-6 font-medium text-foreground hover:border-primary hover:text-primary"
-          >
-            Get in touch
-            <Send className="size-4" />
-          </Button>
+
+          {/* Open to Work Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--badge-dot)]/30 bg-[var(--badge-bg)] px-3 py-1 text-xs font-medium text-[var(--badge-text)]">
+            <span className="size-1.5 rounded-full bg-[var(--badge-dot)]" />
+            {t.hero.openToWork}
+          </span>
         </div>
 
         {/* Social Icons */}
         <div className="mt-6 flex items-center gap-4">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/manuel-savenia-b38639363/?locale=en-US"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -61,7 +80,7 @@ export function HeroSection() {
             </svg>
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/ManuSavenia"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
