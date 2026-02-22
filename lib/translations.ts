@@ -55,15 +55,20 @@ export const translations = {
       professionalSubtitle: 'Where I have worked and what I have done.',
       at: 'at',
       // Projects
-      smartPoll: {
-        title: 'SmartPoll',
+      blitzcrank: {
+        title: 'Blitzcrank',
         description:
-          'An electronic voting system designed for educational purposes that integrates permissioned blockchain, digitally signed QR codes, and Anonymous Voting Tokens to guarantee security, transparency, and traceability.',
+          'A prototype of a mobile robotic gripper designed to move in two axes (X and Y) through a rail system. On this plane of movement, the gripper can move up, down, open, and close, giving it the ability to manipulate light objects within a determined area. Control is performed manually through a Hall effect joystick and a set of buttons that allow the user to interact simply and intuitively.',
       },
-      deepRead: {
-        title: 'DeepRead',
+      electricSim: {
+        title: 'ElectricSim',
         description:
-          'A personal project that turns reading into an active learning process, allowing users to manage books and chapters, create summaries, and track their progress through dashboards.',
+          'ElectricSim is an educational platform oriented towards the analysis, simulation, and prediction of electrical demand in the Greater Buenos Aires area (GBA). The system integrates energy, meteorological, and astronomical data sources, consolidates them through Apache Kafka, and exposes them to a deep learning model capable of anticipating variations in electrical consumption and detecting anomalous behaviors in real time.',
+      },
+      bipedalRobot: {
+        title: 'Bipedal Robot',
+        description:
+          'Bipedal Robot Prototype: This project features a 3D-printed bipedal robot designed for agile movement. It is powered by an ESP8266 microcontroller paired with an Arduino Motor Shield V2 to manage its multiple servo motors. The robot is controlled remotely via a custom-developed web interface, allowing for real-time wireless command execution through a local network.',
       },
       // Experience items
       seniorFrontend: {
@@ -163,15 +168,20 @@ export const translations = {
       professionalSubtitle: 'Donde he trabajado y qué he hecho.',
       at: 'en',
       // Projects
-      smartPoll: {
-        title: 'SmartPoll',
+      blitzcrank: {
+        title: 'Blitzcrank',
         description:
-          'Un sistema de votación electrónica diseñado para fines educativos que integra blockchain con permisos, códigos QR firmados digitalmente y Token de Votación Anónima para garantizar seguridad, transparencia y trazabilidad.',
+          'El proyecto Blitzcrank es un prototipo de garra robótica móvil diseñado para desplazarse en dos ejes (X e Y) mediante un sistema de rieles. Sobre este plano de movimiento, la garra puede subir, bajar, abrir y cerrar, lo que le otorga la capacidad de manipular objetos livianos dentro de un área determinada. El control se realiza manualmente a través de un joystick de efecto Hall y un conjunto de botones que permiten al usuario interactuar de manera sencilla e intuitiva.',
       },
-      deepRead: {
-        title: 'DeepRead',
+      electricSim: {
+        title: 'ElectricSim',
         description:
-          'Un proyecto personal que convierte la lectura en un proceso de aprendizaje activo, permitiendo a los usuarios gestionar libros y capítulos, crear resúmenes y rastrear su progreso a través de paneles de control.',
+          'ElectricSim es una plataforma educativa orientada al análisis, simulación y predicción de la demanda eléctrica en el Gran Buenos Aires (GBA). El sistema integra fuentes de datos energéticas, meteorológicas y astronómicas, las consolida mediante Apache Kafka y las expone a un modelo de deep learning capaz de anticipar variaciones en el consumo eléctrico y detectar comportamientos anómalos en tiempo real.',
+      },
+      bipedalRobot: {
+        title: 'Robot Bípedo',
+        description:
+          'Prototipo de Robot Bípedo: Este proyecto presenta un robot bípedo impreso en 3D diseñado para el movimiento ágil. Está impulsado por un microcontrolador ESP8266 junto con un Arduino Motor Shield V2 para gestionar sus múltiples servomotores. El robot se controla de forma remota a través de una interfaz web desarrollada personalizadamente, permitiendo la ejecución inalámbrica de comandos en tiempo real a través de una red local.',
       },
       // Experience items
       seniorFrontend: {

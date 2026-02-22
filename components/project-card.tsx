@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react'
+import Image from 'next/image'
 
 interface ProjectCardProps {
   title: string
@@ -6,6 +7,7 @@ interface ProjectCardProps {
   tags: string[]
   link?: string
   imageColor: string
+  logo?: string
 }
 
 export function ProjectCard({
@@ -14,17 +16,29 @@ export function ProjectCard({
   tags,
   link,
   imageColor,
+  logo,
 }: ProjectCardProps) {
   return (
     <div className="group overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/30">
       {/* Project preview area */}
       <div
-        className="flex h-52 items-center justify-center md:h-64"
+        className="relative flex h-52 items-center justify-center md:h-64"
         style={{ backgroundColor: imageColor }}
       >
-        <span className="text-4xl font-bold tracking-tight text-foreground/80">
-          {title}
-        </span>
+        {logo ? (
+          <Image
+            src={logo}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            style={{ objectPosition: 'center top' }}
+          />
+        ) : (
+          <span className="text-4xl font-bold tracking-tight text-foreground/80">
+            {title}
+          </span>
+        )}
       </div>
 
       {/* Content */}

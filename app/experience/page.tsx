@@ -11,18 +11,29 @@ export default function ExperiencePage() {
 
   const projects = [
     {
-      title: t.experience.smartPoll.title,
-      description: t.experience.smartPoll.description,
-      tags: ['Solidity', 'React', 'Node.js', 'Blockchain'],
+      title: t.experience.blitzcrank.title,
+      description: t.experience.blitzcrank.description,
+      tags: ['Electronics', 'EDU-CIAA', 'RTOS', 'C', 'ESP32'],
       link: '#',
-      imageColor: '#1c2333',
+      imageColor: '#1a1a1a',
+      logo: '/Pictures/Blitzcranck/Logo.png',
+      
     },
     {
-      title: t.experience.deepRead.title,
-      description: t.experience.deepRead.description,
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
+      title: t.experience.electricSim.title,
+      description: t.experience.electricSim.description,
+      tags: ['SpringBoot', 'ApacheKafka', 'TensorFlow', 'Grafana'],
       link: '#',
-      imageColor: '#161b22',
+      imageColor: '#0f1419',
+      logo: '/Pictures/ElectricSim/Logo.png',
+    },
+    {
+      title: t.experience.bipedalRobot.title,
+      description: t.experience.bipedalRobot.description,
+      tags: ['ArduinoIDE', 'ESP8266', 'ArduinoShieldV2'],
+      link: '#',
+      imageColor: '#1a1f2e',
+      logo: '/Pictures/Bipedal_robot/robot.png',
     },
   ]
 
