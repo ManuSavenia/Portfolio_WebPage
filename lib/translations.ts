@@ -13,21 +13,23 @@ export const translations = {
       skillsTitle: 'Skills & Technologies',
       educationTitle: 'Education',
       bio1:
-        "I'm a software engineer passionate about building accessible, pixel-perfect digital experiences. I enjoy working at the intersection of design and development, creating solutions that are not only functional but also a pleasure to use.",
+        "I'm a Computer Engineer passionate about building accessible digital and physical experiences. I enjoy working at the intersection of design and development, creating solutions that are not only functional but also efficient.",
       bio2:
-        "When I'm not coding, you'll find me reading, hiking, playing chess, or diving into the latest tech rabbit hole. I believe in continuous learning and enjoy contributing to open-source projects.",
-      location: 'Buenos Aires, Argentina',
-      coffeeEnthusiast: 'Coffee enthusiast',
-      degree: 'B.S. Computer Science',
-      school: 'National University',
-      educationPeriod: '2020 - 2025',
+        "When I'm not working, you'll find me listening to music, working out, reading, or petting my cats. I believe in continuous learning and enjoy looking at the potential of specific ideas.",
+      location: 'La Plata, Argentina',
+      musicEnthusiast: 'Music enthusiast',
+      degree: 'Computer Engineering Degree',
+      school: 'Universidad Nacional de La Plata',
+      educationPeriod: '2022 - 2026',
       educationDesc:
-        'Focused on software engineering, algorithms, and data structures. Participated in competitive programming and open-source contributions.',
+        'Focused on developing software and hardware solutions, I learned to solve real world problems through technology while learning the fundamentals of Mathematics, Physics and Electronics, as well as Team work and individual work.',
       skillCategories: {
-        languages: 'Languages',
-        frontend: 'Frontend',
-        backend: 'Backend',
+        Planguages: 'Programming Languages',
+        frontend_backend: 'Frontend/Backend',
+        Engineering: 'Engineering',
         tools: 'Tools',
+        general: 'General Skills',
+        languages: 'Languages',
       },
     },
     // Contact Page
@@ -68,30 +70,20 @@ export const translations = {
       bipedalRobot: {
         title: 'Bipedal Robot',
         description:
-          'Bipedal Robot Prototype: This project features a 3D-printed bipedal robot designed for agile movement. It is powered by an ESP8266 microcontroller paired with an Arduino Motor Shield V2 to manage its multiple servo motors. The robot is controlled remotely via a custom-developed web interface, allowing for real-time wireless command execution through a local network.',
+          'Prototipo de Robot Bípedo: Este proyecto presenta un robot bípedo impreso en 3D diseñado para movimiento ágil. Está alimentado por un microcontrolador ESP8266 emparejado con un Arduino Motor Shield V2 para gestionar sus múltiples servomotores. El robot se controla de forma remota a través de una interfaz web personalizada, permitiendo la ejecución de comandos inalámbricos en tiempo real a través de una red local.',
+      },
+      roomLEDs: {
+        title: 'Room LEDs',
+        description:
+          'LED room illumination project using an ESP32 with WLED to synchronize computer audio with light movement. This setup creates an immersive ambient lighting experience by analyzing audio input and dynamically controlling LED strips in real-time through network synchronization.',
       },
       // Experience items
-      seniorFrontend: {
-        title: 'Senior Frontend Engineer',
-        company: 'TechCorp',
-        period: '2024 - Present',
-        description:
-          'Build and maintain critical UI components powering the main product. Work closely with cross-functional teams to implement and advocate for best practices in web accessibility and performance.',
-      },
-      fullStack: {
-        title: 'Full Stack Developer',
-        company: 'StartupLab',
-        period: '2022 - 2024',
-        description:
-          'Developed and shipped full-stack features for a SaaS platform serving thousands of users. Led the migration from a legacy codebase to a modern tech stack, improving page load times by 40%.',
-      },
-      intern: {
-        title: 'Software Engineering Intern',
-        company: 'DevAgency',
-        period: '2021 - 2022',
-        description:
-          'Contributed to client projects ranging from e-commerce platforms to internal dashboards. Gained hands-on experience with agile workflows and code review processes.',
-      },
+      firstOpportunity: {
+        title: 'Aspiring Software & Electronics Engineer',
+        company: 'Open to Work',
+        period: 'Present',
+        description: 'Advanced Computer Engineering student seeking my first professional opportunity. Passionate about embedded systems, machine learning and networking. Ready to contribute to innovative projects and grow within a professional team.',
+  },
     },
     // Section Bands
     sections: {
@@ -124,21 +116,23 @@ export const translations = {
       skillsTitle: 'Habilidades y Tecnologías',
       educationTitle: 'Educación',
       bio1:
-        'Soy un ingeniero de software apasionado por construir experiencias digitales accesibles y perfectas en cada píxel. Disfruto trabajando en la intersección del diseño y el desarrollo, creando soluciones que no solo son funcionales sino también placenteras de usar.',
+        'Soy un Ingeniero en Computación apasionado por construir experiencias tanto digitales como físicas que sean accesibles. Disfruto trabajar en la intersección entre el diseño y el desarrollo, creando soluciones que no solo sean funcionales, sino también eficientes.',
       bio2:
-        'Cuando no estoy programando, me encontrarás leyendo, senderismo, jugando ajedrez o sumergiéndome en el último agujero de conejo tecnológico. Creo en el aprendizaje continuo y disfruto contribuyendo a proyectos de código abierto.',
-      location: 'Buenos Aires, Argentina',
-      coffeeEnthusiast: 'Amante del café',
-      degree: 'Licenciatura en Ciencias de la Computación',
-      school: 'Universidad Nacional',
-      educationPeriod: '2020 - 2025',
+        'Cuando no estoy trabajando, me encontrarás escuchando música, entrenando, leyendo o acariciando a mis gatos. Creo en el aprendizaje continuo y disfruto analizando el potencial de ideas específicas.',
+      location: 'La Plata, Argentina',
+      musicEnthusiast: 'Entusiasta de la música',
+      degree: 'Ingeniería en computación',
+      school: 'Universidad Nacional de La Plata',
+      educationPeriod: '2022 - 2026',
       educationDesc:
-        'Enfocado en ingeniería de software, algoritmos y estructuras de datos. Participó en programación competitiva y contribuciones de código abierto.',
+        'Enfocado en el desarrollo de soluciones de software y hardware, aprendí a resolver problemas del mundo real a través de la tecnología mientras incorporaba los fundamentos de Matemática, Física y Electrónica, así como el trabajo en equipo e individual.',
       skillCategories: {
-        languages: 'Lenguajes',
-        frontend: 'Frontend',
-        backend: 'Backend',
+        Planguages: 'Lenguajes de Programación',
+        frontend_backend: 'Frontend/Backend',
+        Engineering: 'Ingenieria',
         tools: 'Herramientas',
+        general: 'Habilidades generales',
+        languages: 'Lenguajes',
       },
     },
     // Contact Page
@@ -183,28 +177,17 @@ export const translations = {
         description:
           'Prototipo de Robot Bípedo: Este proyecto presenta un robot bípedo impreso en 3D diseñado para el movimiento ágil. Está impulsado por un microcontrolador ESP8266 junto con un Arduino Motor Shield V2 para gestionar sus múltiples servomotores. El robot se controla de forma remota a través de una interfaz web desarrollada personalizadamente, permitiendo la ejecución inalámbrica de comandos en tiempo real a través de una red local.',
       },
+      roomLEDs: {
+        title: "Room LEDs",
+        description: "Proyecto de iluminación de ambientes con LED utilizando un ESP32 con WLED para sincronizar el audio de la computadora con el movimiento de la luz. Esta configuración crea una experiencia de iluminación ambiental inmersiva al analizar la entrada de audio y controlar dinámicamente tiras de LED en tiempo real mediante sincronización de red."
+      },
       // Experience items
-      seniorFrontend: {
-        title: 'Ingeniero Senior de Frontend',
-        company: 'TechCorp',
-        period: '2024 - Presente',
-        description:
-          'Construir y mantener componentes de interfaz de usuario críticos que potencian el producto principal. Trabaja en estrecha colaboración con equipos multidisciplinarios para implementar y abogar por las mejores prácticas en accesibilidad web y rendimiento.',
-      },
-      fullStack: {
-        title: 'Desarrollador Full Stack',
-        company: 'StartupLab',
-        period: '2022 - 2024',
-        description:
-          'Desarrollé y lancé características full-stack para una plataforma SaaS que sirve a miles de usuarios. Lideré la migración de una base de código heredada a una pila tecnológica moderna, mejorando los tiempos de carga de página en un 40%.',
-      },
-      intern: {
-        title: 'Pasante de Ingeniería de Software',
-        company: 'DevAgency',
-        period: '2021 - 2022',
-        description:
-          'Contribuyó a proyectos de clientes que van desde plataformas de comercio electrónico hasta paneles internos. Adquirió experiencia práctica con flujos de trabajo ágiles y procesos de revisión de código.',
-      },
+      firstOpportunity: {
+        title: 'Aspirante a Ingeniero de Software y Electrónica',
+        company: 'Búsqueda de empleo',
+        period: 'Presente',
+        description: 'Estudiante avanzado de Ingeniería Informática buscando mi primera oportunidad profesional. Apasionado por los sistemas embebidos, el aprendizaje automático y el networking. Listo para contribuir a proyectos innovadores y crecer dentro de un equipo profesional.',
+  },
     },
     // Section Bands
     sections: {

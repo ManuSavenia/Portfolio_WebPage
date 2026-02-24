@@ -1,6 +1,7 @@
 'use client'
 
-import { GraduationCap, MapPin, Code2, Coffee } from 'lucide-react'
+import Image from 'next/image'
+import { GraduationCap, MapPin, Code2, Music2 } from 'lucide-react'
 import { useLanguage } from '@/context/language-context'
 import { getTranslation } from '@/lib/translations'
 
@@ -10,20 +11,28 @@ export default function AboutPage() {
 
   const skills = [
     {
-      category: t.about.skillCategories.languages,
-      items: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++', 'SQL'],
+      category: t.about.skillCategories.Planguages,
+      items: ['Python', 'Java', 'C', 'SQL', 'Assembly', 'LateX', 'MATLAB', 'Linux' , 'Pascal' ],
     },
     {
-      category: t.about.skillCategories.frontend,
-      items: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'HTML/CSS'],
+      category: t.about.skillCategories.frontend_backend,
+      items: ['React', 'Next.js', 'Tailwind CSS', 'HTML/CSS','Node.js', 'MariaDB'],
     },
     {
-      category: t.about.skillCategories.backend,
-      items: ['Node.js', 'Express', 'Django', 'PostgreSQL', 'MongoDB'],
+      category: t.about.skillCategories.Engineering,
+      items: ['Advanced Math', 'Networking', 'PCB design', 'Electronics', 'Microcontrollers'],
     },
     {
       category: t.about.skillCategories.tools,
-      items: ['Git', 'Docker', 'Linux', 'Figma', 'CI/CD'],
+      items: ['Git', 'Linux', 'Figma', 'Canva', 'VS Code', 'KiCad', 'Proteus Design Suite', 'MATLAB', 'Jupyter Notebooks', 'Overleaf'],
+    },
+    {
+      category: t.about.skillCategories.general,
+      items: ['Soldering', 'PC diagnosis', 'PC building'],
+    },
+    {
+      category: t.about.skillCategories.languages,
+      items: ['Spanish (native)', 'English (C1)'],
     },
   ]
 
@@ -46,8 +55,14 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-12">
             {/* Avatar placeholder */}
-            <div className="flex size-40 shrink-0 items-center justify-center rounded-2xl bg-card border border-border">
-              <Code2 className="size-16 text-primary" />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 shrink-0 overflow-hidden rounded-2xl border border-border">
+              <Image
+                src="/Pictures/about/me.jpg"
+                alt="Profile picture"
+                width={1500}
+                height={1500}
+                className="object-cover w-full h-full"
+              />
             </div>
 
             <div className="flex-1">
@@ -64,8 +79,8 @@ export default function AboutPage() {
                   {t.about.location}
                 </span>
                 <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <Coffee className="size-4 text-primary" />
-                  {t.about.coffeeEnthusiast}
+                  <Music2 className="size-4 text-primary" />
+                  {t.about.musicEnthusiast}
                 </span>
               </div>
             </div>
@@ -113,10 +128,16 @@ export default function AboutPage() {
                 className="flex gap-4 rounded-xl border border-border bg-card p-6"
               >
                 <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  <GraduationCap className="size-6 text-primary" />
+                  <Image
+                    src="/Pictures/about/UNLP_Logo.png"
+                    alt="UNLP Logo"
+                    width={48}
+                    height={48}
+                    className="size-10 object-contain"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-card-foreground">
+                  <h3 className="text-base font-semibold text-card-foreground"> 
                     {edu.degree}
                   </h3>
                   <p className="mt-0.5 text-sm text-primary">{edu.school}</p>

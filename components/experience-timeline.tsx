@@ -18,29 +18,12 @@ export function ExperienceTimeline() {
 
   const experiences: ExperienceItem[] = [
     {
-      periodKey: 'seniorFrontend',
-      titleKey: 'seniorFrontend',
-      company: 'TechCorp',
-      companyUrl: '#',
-      descriptionKey: 'seniorFrontend',
-      tags: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
-    },
-    {
-      periodKey: 'fullStack',
-      titleKey: 'fullStack',
-      company: 'StartupLab',
-      companyUrl: '#',
-      descriptionKey: 'fullStack',
-      tags: ['Node.js', 'React', 'PostgreSQL', 'Docker'],
-    },
-    {
-      periodKey: 'intern',
-      titleKey: 'intern',
-      company: 'DevAgency',
-      companyUrl: '#',
-      descriptionKey: 'intern',
-      tags: ['JavaScript', 'Vue.js', 'Python', 'Git'],
-    },
+      periodKey: 'period', 
+      titleKey: 'firstOpportunity', 
+      company: t.experience.firstOpportunity.company,
+      descriptionKey: 'description',
+      tags: ['Engineering Student', 'Fast Learner', 'Problem Solving'],
+    }
   ]
 
   return (

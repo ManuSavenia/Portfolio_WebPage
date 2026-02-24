@@ -16,7 +16,7 @@ export default function ExperiencePage() {
       tags: ['Electronics', 'EDU-CIAA', 'RTOS', 'C', 'ESP32'],
       link: '#',
       imageColor: '#1a1a1a',
-      logo: '/Pictures/Blitzcranck/Logo.png',
+      logo: '/Pictures/projects/Blitzcranck/Logo.png',
       
     },
     {
@@ -25,7 +25,7 @@ export default function ExperiencePage() {
       tags: ['SpringBoot', 'ApacheKafka', 'TensorFlow', 'Grafana'],
       link: '#',
       imageColor: '#0f1419',
-      logo: '/Pictures/ElectricSim/Logo.png',
+      logo: '/Pictures/projects/ElectricSim/Logo.png',
     },
     {
       title: t.experience.bipedalRobot.title,
@@ -33,7 +33,15 @@ export default function ExperiencePage() {
       tags: ['ArduinoIDE', 'ESP8266', 'ArduinoShieldV2'],
       link: '#',
       imageColor: '#1a1f2e',
-      logo: '/Pictures/Bipedal_robot/robot.png',
+      logo: '/Pictures/projects/Bipedal_robot/robot.png',
+    },
+    {
+      title: t.experience.roomLEDs.title,
+      description: t.experience.roomLEDs.description,
+      tags: ['ESP32', 'WLED', 'LEDFX', 'Electronics'],
+      link: '#',
+      imageColor: '#0a0a0a',
+      logo: '/Pictures/projects/LEDs/schematic.jpeg',
     },
   ]
 

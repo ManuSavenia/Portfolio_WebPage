@@ -79,38 +79,6 @@ Portfolio_WebPage/
 └── package.json                 # Project dependencies
 ```
 
-## Getting Started
-
-### Prerequisites
-
-- **Node.js** 18.0.0 or higher
-- **pnpm** 8.0.0 or higher (recommended) or npm/yarn
-
-### Installation
-
-1. **Clone the repository** (if hosted on GitHub/GitLab)
-   ```bash
-   git clone <repository-url>
-   cd Portfolio_WebPage
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pnpm install
-   # or
-   npm install
-   ```
-
-3. **Run the development server**
-   ```bash
-   pnpm dev
-   # or
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see your portfolio
-
 ## 📝 Available Scripts
 
 - `pnpm dev` - Start the development server with hot reload
@@ -149,50 +117,6 @@ The portfolio uses `next-themes` for theme management. To customize colors and s
 2. Modify `app/globals.css` for global styles
 3. The theme toggle is available in the navbar component
 
-### Adding New Components
-
-To add new shadcn/ui components:
-
-```bash
-npx shadcn-ui@latest add <component-name>
-```
-
-Refer to the [shadcn/ui documentation](https://ui.shadcn.com/) for component usage.
-
-##  Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. **Push your code to GitHub**
-   ```bash
-   git push origin main
-   ```
-
-2. **Import to Vercel**
-   - Visit [vercel.com](https://vercel.com)
-   - Click "Import Project"
-   - Connect your GitHub repository
-   - Configure settings and deploy
-
-3. **Continuous Deployment**
-   - Every push to main automatically redeploys your site
-
-### Deploy to Other Platforms
-
-**Netlify:**
-- Connect your GitHub/GitLab repository
-- Build command: `pnpm build`
-- Publish directory: `.next`
-
-**Self-hosted:**
-```bash
-pnpm build
-pnpm start
-```
-
-##  Analytics
-
-The portfolio includes Vercel Analytics to track user engagement. View your analytics dashboard on your Vercel project page.
 
 ## License
 
