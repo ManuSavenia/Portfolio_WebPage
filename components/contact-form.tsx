@@ -9,12 +9,16 @@ import { getTranslation } from '@/lib/translations'
 export function ContactForm() {
   const { language } = useLanguage()
   const t = getTranslation(language)
-  
+
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>(
+    'idle'
+  )
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,11 +26,31 @@ export function ContactForm() {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Placeholder -- wire up to your own backend or email service
-    alert(t.contact.successMessage)
-    setFormState({ name: '', email: '', message: '' })
+    setStatus('loading')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null)
+        throw new Error(data?.error || 'Failed to send message')
+      }
+
+      setStatus('success')
+      setFormState({ name: '', email: '', message: '' })
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Failed to send message'
+      )
+    }
   }
 
   return (
@@ -94,11 +118,19 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
+        disabled={status === 'loading'}
         className="mt-1 gap-2 self-start bg-primary text-primary-foreground hover:bg-primary/85 rounded-lg px-6 font-medium"
       >
-        {t.contact.sendMessage}
+        {status === 'loading' ? 'Sending...' : t.contact.sendMessage}
         <Send className="size-4" />
       </Button>
+
+      {status === 'success' && (
+        <p className="text-sm text-emerald-600">{t.contact.successMessage}</p>
+      )}
+      {status === 'error' && (
+        <p className="text-sm text-red-600">{errorMessage}</p>
+      )}
     </form>
   )
 }

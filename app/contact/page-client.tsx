@@ -45,8 +45,8 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {t.contact.location === 'Location'
-                      ? 'Buenos Aires, Argentina'
-                      : 'Buenos Aires, Argentina'}
+                      ? 'La Plata Argentina'
+                      : 'La Plata, Argentina'}
                   </p>
                 </div>
               </div>
@@ -62,11 +62,8 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
                   <h3 className="text-sm font-semibold text-card-foreground">
                     {t.contact.email}
                   </h3>
-                  <a
-                    href="mailto:hello@example.com"
-                    className="text-sm text-primary transition-colors hover:underline"
-                  >
-                    hello@example.com
+                  <a>
+                    saveniamanuel@gmail.com
                   </a>
                 </div>
               </div>

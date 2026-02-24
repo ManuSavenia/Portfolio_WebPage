@@ -37,46 +37,58 @@ A modern, responsive portfolio website showcasing my professional experience, pr
 ```
 Portfolio_WebPage/
 ├── app/                          # Next.js app directory
-│   ├── layout.tsx               # Root layout component
-│   ├── page.tsx                 # Home page
-│   ├── globals.css              # Global styles
+│   ├── layout.tsx                # Root layout component
+│   ├── page.tsx                  # Home page
+│   ├── globals.css               # Global styles
 │   ├── about/
-│   │   └── page.tsx             # About page
+│   │   └── page.tsx              # About page
 │   ├── contact/
-│   │   └── page.tsx             # Contact page
-│   └── experience/
-│       └── page.tsx             # Experience/Timeline page
+│   │   ├── page.tsx              # Contact page (server)
+│   │   └── page-client.tsx       # Contact page (client)
+│   ├── experience/
+│   │   └── page.tsx              # Experience page
+│   └── api/
+│       └── contact/
+│           └── route.ts          # Contact form email API
 │
-├── components/                   # Reusable React components
-│   ├── hero-section.tsx         # Landing/hero section
-│   ├── navbar.tsx               # Navigation component
+├── components/                    # Reusable React components
+│   ├── hero-section.tsx          # Landing/hero section
+│   ├── navbar.tsx                # Navigation component
 │   ├── experience-timeline.tsx   # Career timeline
-│   ├── project-card.tsx         # Project showcase card
-│   ├── contact-form.tsx         # Contact form component
-│   ├── section-bands.tsx        # Section separator
-│   ├── theme-provider.tsx       # Theme configuration
-│   └── ui/                      # shadcn/ui components
+│   ├── project-card.tsx          # Project showcase card
+│   ├── contact-form.tsx          # Contact form component
+│   ├── section-bands.tsx         # Section separator
+│   ├── theme-provider.tsx        # Theme configuration
+│   └── ui/                       # shadcn/ui components
 │       ├── button.tsx
 │       ├── card.tsx
 │       ├── input.tsx
 │       ├── form.tsx
-│       └── ...                  # Additional UI components
+│       └── ...                   # Additional UI components
 │
-├── hooks/                        # Custom React hooks
-│   ├── use-toast.ts             # Toast notification hook
-│   └── use-mobile.ts            # Mobile detection hook
+├── context/                       # React context providers
+│   └── language-context.tsx      # Language selection context
 │
-├── lib/                          # Utility functions
-│   └── utils.ts                 # Helper functions
+├── hooks/                         # Custom React hooks
+│   ├── use-toast.ts              # Toast notification hook
+│   └── use-mobile.ts             # Mobile detection hook
 │
-├── public/                       # Static assets
-├── styles/                       # Additional stylesheets
-├── next.config.mjs              # Next.js configuration
-├── tailwind.config.ts           # Tailwind CSS configuration
-├── tsconfig.json                # TypeScript configuration
-├── postcss.config.mjs           # PostCSS configuration
-├── components.json              # shadcn/ui configuration
-└── package.json                 # Project dependencies
+├── lib/                           # Utilities and content
+│   ├── translations.ts           # i18n strings
+│   └── utils.ts                  # Helper functions
+│
+├── public/                        # Static assets
+│   ├── Pictures/
+│   │   ├── about/
+│   │   └── projects/
+│   └── Cvs/
+│
+├── styles/                        # Additional stylesheets
+├── next.config.mjs                # Next.js configuration
+├── tsconfig.json                 # TypeScript configuration
+├── postcss.config.mjs            # PostCSS configuration
+├── components.json               # shadcn/ui configuration
+└── package.json                  # Project dependencies
 ```
 
 ## 📝 Available Scripts

@@ -41,13 +41,13 @@ export const translations = {
       socialMedia: 'Social Media',
       // Form
       name: 'Name',
-      nameplaceholder: 'John Doe',
+      nameplaceholder: '',
       emailLabel: 'Email',
-      emailPlaceholder: 'john@example.com',
+      emailPlaceholder: '',
       message: 'Message',
-      messagePlaceholder: "Hi, I'd love to chat about...",
+      messagePlaceholder: "",
       sendMessage: 'Send Message',
-      successMessage: 'Message sent! (placeholder)',
+      successMessage: 'Message sent! I will get back to you soon.',
     },
     // Experience Page
     experience: {
@@ -145,13 +145,13 @@ export const translations = {
       socialMedia: 'Redes Sociales',
       // Form
       name: 'Nombre',
-      nameplaceholder: 'Juan Pérez',
+      nameplaceholder: '',
       emailLabel: 'Correo Electrónico',
-      emailPlaceholder: 'juan@ejemplo.com',
+      emailPlaceholder: '',
       message: 'Mensaje',
-      messagePlaceholder: 'Hola, me encantaría conversar sobre...',
+      messagePlaceholder: '',
       sendMessage: 'Enviar Mensaje',
-      successMessage: '¡Mensaje enviado! (marcador)',
+      successMessage: '¡Mensaje enviado! Te responderé pronto.',
     },
     // Experience Page
     experience: {

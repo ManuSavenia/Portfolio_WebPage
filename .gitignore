@@ -18,6 +18,17 @@ dist/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*
+.env.*.local
+
+# Secrets / keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+*.cer
 
 # Debug logs
 npm-debug.log*
