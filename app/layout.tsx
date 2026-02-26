@@ -23,21 +23,8 @@ export const metadata: Metadata = {
   title: 'Portfolio | Software Engineer',
   description: 'Personal portfolio website showcasing projects, experience, and skills.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/Pictures/user/face1.png',
+    apple: '/Pictures/user/face1.png',
   },
 }
 
