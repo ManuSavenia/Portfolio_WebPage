@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { execSync } from 'node:child_process'
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/context/language-context'
 import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
 import './globals.css'
 
 const inter = Inter({
@@ -42,11 +44,40 @@ export const viewport: Viewport = {
   themeColor: '#0d1117',
 }
 
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+}
+
+function getLastUpdated() {
+  try {
+    const gitDate = execSync('git log -1 --format=%cI', {
+      cwd: process.cwd(),
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString()
+      .trim()
+
+    if (!gitDate) {
+      return formatDate(new Date())
+    }
+
+    return formatDate(new Date(gitDate))
+  } catch {
+    return formatDate(new Date())
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const lastUpdated = getLastUpdated()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
@@ -58,9 +89,8 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
-            <main>
-              {children}
-            </main>
+            <main>{children}</main>
+            <Footer lastUpdated={lastUpdated} />
           </ThemeProvider>
         </LanguageProvider>
         <Analytics />

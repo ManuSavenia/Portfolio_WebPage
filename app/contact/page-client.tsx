@@ -62,7 +62,7 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
                   <h3 className="text-sm font-semibold text-card-foreground">
                     {t.contact.email}
                   </h3>
-                  <a>
+                  <a href="mailto:saveniamanuel@gmail.com" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                     saveniamanuel@gmail.com
                   </a>
                 </div>

@@ -23,6 +23,11 @@ export const translations = {
       educationPeriod: '2022 - 2026',
       educationDesc:
         'Focused on developing software and hardware solutions, I learned to solve real world problems through technology while learning the fundamentals of Mathematics, Physics and Electronics, as well as Team work and individual work.',
+      languageSchoolName: 'Language School',
+      languageSchoolPlace: 'Universidad Nacional de La Plata',
+      languageSchoolPeriod: '2012 - 2020',
+      languageSchoolDesc:
+        'Started at a young age, I learned the fundamentals of English (writing, listening, speaking) as well as the corresponding grammar and vocabulary, leading me to finish this course with a B2 english level.',
       skillCategories: {
         Planguages: 'Programming Languages',
         frontend_backend: 'Frontend/Backend',
@@ -101,6 +106,11 @@ export const translations = {
       bio: 'Advanced Computer Engineer student with a passion for building creative solutions.',
       downloadCV: 'Download CV',
     },
+    // Footer
+    footer: {
+      madeBy: 'Made by Manuel Savenia',
+      lastUpdated: 'Last updated',
+    },
   },
   es: {
     // Navigation
@@ -126,6 +136,11 @@ export const translations = {
       educationPeriod: '2022 - 2026',
       educationDesc:
         'Enfocado en el desarrollo de soluciones de software y hardware, aprendí a resolver problemas del mundo real a través de la tecnología mientras incorporaba los fundamentos de Matemática, Física y Electrónica, así como el trabajo en equipo e individual.',
+      languageSchoolName: 'Escuela de Lenguas',
+      languageSchoolPlace: 'Universidad Nacional de La Plata',
+      languageSchoolPeriod: '2012 - 2020',
+      languageSchoolDesc:
+        'Comence desde joven y aprendi los fundamentos del ingles (escritura, escucha, habla) junto con la gramatica y el vocabulario correspondientes, logrando finalizar este curso con un nivel de ingles B2.',
       skillCategories: {
         Planguages: 'Lenguajes de Programación',
         frontend_backend: 'Frontend/Backend',
@@ -204,6 +219,11 @@ export const translations = {
       openToWork: 'Abierto a trabajar',
       bio: 'Estudiante avanzado de Ingeniería Informática con pasión por construir soluciones creativas.',
       downloadCV: 'Descargar CV',
+    },
+    // Footer
+    footer: {
+      madeBy: 'Creado por Manuel Savenia',
+      lastUpdated: 'Ultima actualizacion',
     },
   },
 } as const

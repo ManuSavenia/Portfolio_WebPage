@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { GraduationCap, MapPin, Code2, Music2 } from 'lucide-react'
+import { GraduationCap, MapPin, Code2, Music2, Baby } from 'lucide-react'
 import { useLanguage } from '@/context/language-context'
 import { getTranslation } from '@/lib/translations'
 
@@ -42,6 +42,16 @@ export default function AboutPage() {
       school: t.about.school,
       period: t.about.educationPeriod,
       description: t.about.educationDesc,
+      logo: '/Pictures/about/UNLP_Logo.png',
+      logoAlt: 'UNLP Logo',
+    },
+    {
+      degree: t.about.languageSchoolName,
+      school: t.about.languageSchoolPlace,
+      period: t.about.languageSchoolPeriod,
+      description: t.about.languageSchoolDesc,
+      logo: '/Pictures/about/EDL.webp',
+      logoAlt: 'Escuela de Lenguas Logo',
     },
   ]
 
@@ -81,6 +91,10 @@ export default function AboutPage() {
                 <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                   <Music2 className="size-4 text-primary" />
                   {t.about.musicEnthusiast}
+                </span>
+                <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                  <Baby className="size-4 text-primary" />
+                  13/12/2003
                 </span>
               </div>
             </div>
@@ -124,13 +138,13 @@ export default function AboutPage() {
           <div className="mt-10 flex flex-col gap-6">
             {education.map((edu) => (
               <div
-                key={edu.school}
+                key={`${edu.school}-${edu.degree}`}
                 className="flex gap-4 rounded-xl border border-border bg-card p-6"
               >
                 <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <Image
-                    src="/Pictures/about/UNLP_Logo.png"
-                    alt="UNLP Logo"
+                    src={edu.logo}
+                    alt={edu.logoAlt}
                     width={48}
                     height={48}
                     className="size-10 object-contain"
@@ -152,6 +166,7 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+
       </div>
     </div>
   )

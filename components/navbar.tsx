@@ -105,7 +105,7 @@ export function Navbar() {
             </button>
 
             {themeMenuOpen && (
-              <div className="absolute right-0 mt-2 flex gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
                 {themeOptions.map((option) => {
                   const Icon = option.icon
                   return (
@@ -187,7 +187,7 @@ export function Navbar() {
                 </button>
 
                 {themeMenuOpen && (
-                  <div className="absolute left-0 mt-2 flex gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+                  <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
                     {themeOptions.map((option) => {
                       const Icon = option.icon
                       return (
