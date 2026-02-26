@@ -14,38 +14,30 @@ export function SectionBands() {
       href: '/experience',
       labelKey: 'experience',
       icon: Briefcase,
-      bgClass: 'bg-band-experience',
-      textClass: 'text-band-experience-foreground',
       descriptionKey: 'experienceDesc',
     },
     {
       href: '/about',
       labelKey: 'about',
       icon: User,
-      bgClass: 'bg-band-about',
-      textClass: 'text-band-about-foreground',
       descriptionKey: 'aboutDesc',
     },
     {
       href: '/contact',
       labelKey: 'contact',
       icon: Mail,
-      bgClass: 'bg-band-contact',
-      textClass: 'text-band-contact-foreground',
       descriptionKey: 'contactDesc',
     },
   ]
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 pb-16">
-      <div className="overflow-hidden rounded-xl border border-border/50">
-        {sections.map((section, index) => (
+      <div className="flex flex-col gap-4">
+        {sections.map((section) => (
           <Link
             key={section.href}
             href={section.href}
-            className={`group flex items-center justify-between ${section.bgClass} ${section.textClass} px-8 py-10 transition-all hover:opacity-90 md:px-12 md:py-14 ${
-              index < sections.length - 1 ? 'border-b border-foreground/10' : ''
-            }`}
+            className="group flex items-center justify-between rounded-xl border border-white/15 bg-band-bg text-band-foreground backdrop-blur-md px-8 py-10 shadow-lg shadow-black/5 transition-all hover:brightness-110 md:px-12 md:py-14"
           >
             <div className="flex items-center gap-4">
               <section.icon className="size-6 opacity-70 md:size-7" />

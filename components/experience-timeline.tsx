@@ -33,7 +33,7 @@ export function ExperienceTimeline() {
         return (
           <div
             key={`${exp.company}-${exp.periodKey}`}
-            className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 md:flex-row md:gap-8"
+            className="group relative flex flex-col gap-4 rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5 transition-all hover:border-primary/30 md:flex-row md:gap-8"
           >
             {/* Period */}
             <div className="shrink-0 text-sm font-medium tracking-wide text-muted-foreground md:w-40 md:pt-0.5">

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { useState, useEffect, useRef } from 'react'
-import { Monitor, Sun, Moon, Menu, X } from 'lucide-react'
+import { Monitor, Sun, Moon, Menu, X, Zap } from 'lucide-react'
 import { useLanguage } from '@/context/language-context'
 import { getTranslation } from '@/lib/translations'
 import { cn } from '@/lib/utils'
@@ -58,7 +58,7 @@ export function Navbar() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--nav-bg)] backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--nav-bg)] backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link
@@ -67,8 +67,8 @@ export function Navbar() {
           aria-label="Home"
         >
           <span className="font-mono text-primary">{'<'}</span>
-          <span className="mx-0.5">Dev</span>
-          <span className="font-mono text-primary">{'/>'}</span>
+          <Zap className="mx-0.5 size-5 fill-primary text-primary" />
+          <span className="font-mono text-primary">{'>'}</span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -105,7 +105,7 @@ export function Navbar() {
             </button>
 
             {themeMenuOpen && (
-              <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-white/10 bg-card backdrop-blur-xl p-1 shadow-lg">
                 {themeOptions.map((option) => {
                   const Icon = option.icon
                   return (
@@ -154,7 +154,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-border/50 bg-[var(--nav-bg)] backdrop-blur-md md:hidden">
+        <div className="border-t border-white/10 bg-[var(--nav-bg)] backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href

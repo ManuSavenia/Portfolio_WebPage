@@ -19,7 +19,7 @@ export function ProjectCard({
   logo,
 }: ProjectCardProps) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/30">
+    <div className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-card backdrop-blur-md shadow-lg shadow-black/5 transition-all hover:border-primary/30">
       {/* Project preview area */}
       <div
         className="relative flex h-52 items-center justify-center md:h-64"

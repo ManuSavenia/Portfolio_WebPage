@@ -34,7 +34,7 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
           {/* Sidebar Info */}
           <aside className="flex flex-col gap-8 md:col-span-2">
             {/* Location */}
-            <div className="rounded-xl border border-border bg-card p-6">
+            <div className="rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5">
               <div className="flex items-center gap-3">
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
                   <MapPin className="size-5 text-primary" />
@@ -53,7 +53,7 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
             </div>
 
             {/* Email */}
-            <div className="rounded-xl border border-border bg-card p-6">
+            <div className="rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5">
               <div className="flex items-center gap-3">
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
                   <Send className="size-5 text-primary" />
@@ -70,7 +70,7 @@ export function ContactPageClient({ socials }: { socials: Social[] }) {
             </div>
 
             {/* Social Links */}
-            <div className="rounded-xl border border-border bg-card p-6">
+            <div className="rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5">
               <h3 className="text-sm font-semibold text-card-foreground">
                 {t.contact.socialMedia}
               </h3>

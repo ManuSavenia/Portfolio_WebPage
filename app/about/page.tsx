@@ -65,7 +65,7 @@ export default function AboutPage() {
           </h1>
           <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-12">
             {/* Avatar placeholder */}
-            <div className="relative w-64 h-64 md:w-80 md:h-80 shrink-0 overflow-hidden rounded-2xl border border-border">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/5">
               <Image
                 src="/Pictures/about/me.jpg"
                 alt="Profile picture"
@@ -110,7 +110,7 @@ export default function AboutPage() {
             {skills.map((group) => (
               <div
                 key={group.category}
-                className="rounded-xl border border-border bg-card p-6"
+                className="rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5"
               >
                 <h3 className="text-sm font-semibold tracking-wide text-primary uppercase">
                   {group.category}
@@ -119,7 +119,7 @@ export default function AboutPage() {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-md bg-secondary px-3 py-1.5 text-sm font-medium text-secondary-foreground"
+                      className="rounded-md bg-white/10 backdrop-blur-sm px-3 py-1.5 text-sm font-medium text-secondary-foreground"
                     >
                       {item}
                     </span>
@@ -139,7 +139,7 @@ export default function AboutPage() {
             {education.map((edu) => (
               <div
                 key={`${edu.school}-${edu.degree}`}
-                className="flex gap-4 rounded-xl border border-border bg-card p-6"
+                className="flex gap-4 rounded-xl border border-white/10 bg-card backdrop-blur-md p-6 shadow-lg shadow-black/5"
               >
                 <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <Image

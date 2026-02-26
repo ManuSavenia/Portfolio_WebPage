@@ -14,7 +14,7 @@ export default function ExperiencePage() {
       title: t.experience.blitzcrank.title,
       description: t.experience.blitzcrank.description,
       tags: ['Electronics', 'EDU-CIAA', 'RTOS', 'C', 'ESP32'],
-      link: '#',
+      link: 'https://github.com/gonblas/blitzcrank',
       imageColor: '#1a1a1a',
       logo: '/Pictures/projects/Blitzcranck/Logo.png',
       
@@ -23,7 +23,7 @@ export default function ExperiencePage() {
       title: t.experience.electricSim.title,
       description: t.experience.electricSim.description,
       tags: ['SpringBoot', 'ApacheKafka', 'TensorFlow', 'Grafana'],
-      link: '#',
+      link: 'https://github.com/ElectricSIM/ElectricSim-ML',
       imageColor: '#0f1419',
       logo: '/Pictures/projects/ElectricSim/Logo.png',
     },

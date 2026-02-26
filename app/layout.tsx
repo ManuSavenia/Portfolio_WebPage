@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/context/language-context'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { SkyBackground } from '@/components/sky-background'
 import './globals.css'
 
 const inter = Inter({
@@ -88,6 +89,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <SkyBackground />
             <Navbar />
             <main>{children}</main>
             <Footer lastUpdated={lastUpdated} />
