@@ -2,48 +2,25 @@
 
 import { useLanguage } from '@/context/language-context'
 import { getTranslation } from '@/lib/translations'
+import { projects } from '@/lib/projects'
 import { ProjectCard } from '@/components/project-card'
 import { ExperienceTimeline } from '@/components/experience-timeline'
 
 export default function ExperiencePage() {
   const { language } = useLanguage()
   const t = getTranslation(language)
+  const isEn = language === 'en'
 
-  const projects = [
-    {
-      title: t.experience.blitzcrank.title,
-      description: t.experience.blitzcrank.description,
-      tags: ['Electronics', 'EDU-CIAA', 'RTOS', 'C', 'ESP32'],
-      link: 'https://github.com/gonblas/blitzcrank',
-      imageColor: '#1a1a1a',
-      logo: '/Pictures/projects/Blitzcranck/Logo.png',
-      
-    },
-    {
-      title: t.experience.electricSim.title,
-      description: t.experience.electricSim.description,
-      tags: ['SpringBoot', 'ApacheKafka', 'TensorFlow', 'Grafana'],
-      link: 'https://github.com/ElectricSIM/ElectricSim-ML',
-      imageColor: '#0f1419',
-      logo: '/Pictures/projects/ElectricSim/Logo.png',
-    },
-    {
-      title: t.experience.bipedalRobot.title,
-      description: t.experience.bipedalRobot.description,
-      tags: ['ArduinoIDE', 'ESP8266', 'ArduinoShieldV2'],
-      link: '#',
-      imageColor: '#1a1f2e',
-      logo: '/Pictures/projects/Bipedal_robot/robot.png',
-    },
-    {
-      title: t.experience.roomLEDs.title,
-      description: t.experience.roomLEDs.description,
-      tags: ['ESP32', 'WLED', 'LEDFX', 'Electronics'],
-      link: '#',
-      imageColor: '#0a0a0a',
-      logo: '/Pictures/projects/LEDs/schematic.jpeg',
-    },
-  ]
+  const projectCards = projects.map((p) => ({
+    slug: p.slug,
+    title: isEn ? p.titleEn : p.titleEs,
+    description: isEn ? p.descriptionEn : p.descriptionEs,
+    tags: p.tags,
+    link: p.link,
+    imageColor: p.imageColor,
+    logo: p.logo,
+    imageFit: p.imageFit,
+  }))
 
   return (
     <div className="min-h-screen px-6 pt-28 pb-20">
@@ -57,8 +34,8 @@ export default function ExperiencePage() {
             {t.experience.projectsSubtitle}
           </p>
           <div className="mt-10 grid gap-8 md:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+            {projectCards.map((project) => (
+              <ProjectCard key={project.slug} {...project} />
             ))}
           </div>
         </section>

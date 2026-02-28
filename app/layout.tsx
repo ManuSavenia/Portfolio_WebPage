@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Software Engineer',
+  title: 'ManuSave | Computer Engineeer',
   description: 'Personal portfolio website showcasing projects, experience, and skills.',
   icons: {
     icon: '/Pictures/user/face1.png',
