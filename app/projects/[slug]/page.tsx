@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { ArrowLeft, ExternalLink, Calendar, Users } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Calendar, Users, Linkedin } from 'lucide-react'
 import { useLanguage } from '@/context/language-context'
 import { getProjectBySlug } from '@/lib/projects'
 import { ImageCarousel } from '@/components/image-carousel'
@@ -107,17 +107,32 @@ export default function ProjectPage() {
           ))}
         </div>
 
-        {/* Description */}
-        <p className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
+        {/* General Description */}
+        <h2 className="mt-10 text-2xl font-semibold text-foreground">
+          {isEn ? 'General Description' : 'Descripción General'}
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
           {description}
         </p>
-
-        {/* Description 2 */}
-        {description2.split('\n\n').map((paragraph, index) => (
-          <p key={index} className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            {paragraph}
+        {description2.split('\n\n').length > 0 && (
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+            {description2.split('\n\n')[0]}
           </p>
-        ))}
+        )}
+
+        {/* Personal Contribution */}
+        {description2.split('\n\n').length > 1 && (
+          <>
+            <h3 className="mt-10 text-xl font-semibold text-foreground">
+              {isEn ? 'Personal Contribution' : 'Contribución Personal'}
+            </h3>
+            {description2.split('\n\n').slice(1).map((paragraph, index) => (
+              <p key={index} className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {paragraph}
+              </p>
+            ))}
+          </>
+        )}
 
         {/* Image Gallery */}
         {galleryImages.length > 0 && (
@@ -174,9 +189,10 @@ export default function ProjectPage() {
                           href={collab.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
                         >
                           {collab.name}
+                          <Linkedin className="size-3.5" />
                         </a>
                       ) : (
                         <span className="text-sm text-muted-foreground">
