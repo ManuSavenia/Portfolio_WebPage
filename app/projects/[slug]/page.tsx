@@ -35,6 +35,7 @@ export default function ProjectPage() {
   }
 
   const isEn = language === 'en'
+  const isBipedalProject = project.slug === 'bipedal-robot'
   const title = isEn ? project.titleEn : project.titleEs
   const description = isEn ? project.descriptionEn : project.descriptionEs
   const description2 = isEn ? project.description2En : project.description2Es
@@ -50,17 +51,34 @@ export default function ProjectPage() {
     <div className="min-h-screen pb-20">
       {/* Hero / Presentation Image */}
       <div className="px-6 pt-24">
+        {/* Back link */}
+        <div className="mx-auto mb-4 w-full max-w-full md:max-w-[70%]">
+          <Link
+            href="/experience"
+            className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/15 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/25"
+          >
+            <ArrowLeft className="size-4" />
+            {isEn ? 'Back to projects' : 'Volver a proyectos'}
+          </Link>
+        </div>
+
         <div
-          className="relative mx-auto h-[40vh] w-full max-w-[70%] overflow-hidden rounded-2xl md:h-[50vh]"
+          className="relative mx-auto h-[34vh] w-full max-w-full overflow-hidden rounded-2xl sm:h-[40vh] md:h-[50vh] md:max-w-[70%]"
           style={{ backgroundColor: project.imageColor }}
         >
           <Image
             src={project.logo}
             alt={title}
             fill
-            sizes="70vw"
-            className={project.imageFit === 'contain' ? 'object-contain p-6' : 'object-cover'}
-            style={{ objectPosition: project.imagePosition || 'center' }}
+            sizes="(max-width: 768px) 100vw, 70vw"
+            className={
+              project.imageFit === 'contain'
+                ? 'object-contain p-6'
+                : isBipedalProject
+                  ? 'object-cover'
+                  : 'object-cover object-left md:object-center'
+            }
+            style={{ objectPosition: isBipedalProject ? (project.imagePosition || 'center') : undefined }}
             priority
           />
         </div>
@@ -68,17 +86,8 @@ export default function ProjectPage() {
 
       {/* Content */}
       <div className="mx-auto max-w-4xl px-6">
-        {/* Back link */}
-        <Link
-          href="/experience"
-          className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-        >
-          <ArrowLeft className="size-4" />
-          {isEn ? 'Back to projects' : 'Volver a proyectos'}
-        </Link>
-
         {/* Title + external link */}
-        <div className="mt-6 flex items-start justify-between gap-4">
+        <div className="mt-8 flex items-start justify-between gap-4">
           <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
             {title}
           </h1>

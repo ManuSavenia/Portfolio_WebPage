@@ -1,10 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { useState, useEffect, useRef } from 'react'
-import { Monitor, Sun, Moon, Menu, X, Zap } from 'lucide-react'
+import { Monitor, Sun, Moon, Menu, X } from 'lucide-react'
 import { useLanguage } from '@/context/language-context'
 import { getTranslation } from '@/lib/translations'
 import { cn } from '@/lib/utils'
@@ -67,7 +68,14 @@ export function Navbar() {
           aria-label="Home"
         >
           <span className="font-mono text-primary">{'<'}</span>
-          <Zap className="mx-0.5 size-5 fill-primary text-primary" />
+          <Image
+            src="/Pictures/user/face1.png"
+            alt="Profile"
+            width={50}
+            height={50}
+            className="mx-0.5 size-8 rounded-sm object-cover"
+            priority
+          />
           <span className="font-mono text-primary">{'>'}</span>
         </Link>
 
@@ -105,7 +113,7 @@ export function Navbar() {
             </button>
 
             {themeMenuOpen && (
-              <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-white/10 bg-card backdrop-blur-xl p-1 shadow-lg">
+              <div className="absolute left-1/2 z-50 mt-2 flex -translate-x-1/2 flex-col gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-[#050a12]">
                 {themeOptions.map((option) => {
                   const Icon = option.icon
                   return (
@@ -187,7 +195,7 @@ export function Navbar() {
                 </button>
 
                 {themeMenuOpen && (
-                  <div className="absolute left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-1 rounded-lg border border-border bg-card p-1 shadow-lg">
+                  <div className="absolute left-1/2 z-50 mt-2 flex -translate-x-1/2 flex-col gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-[#050a12]">
                     {themeOptions.map((option) => {
                       const Icon = option.icon
                       return (

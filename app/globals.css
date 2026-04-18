@@ -41,6 +41,7 @@
 
   /* Custom portfolio tokens */
   --nav-bg: rgba(235, 245, 255, 0.6);
+  --nav-bg-solid: #ebf5ff;
   --nav-active: #4a76c9;
   --nav-text: #334155;
   --hero-name: #2e58a3;
@@ -88,6 +89,7 @@
 
   /* Custom portfolio tokens */
   --nav-bg: rgba(5, 10, 18, 0.6);
+  --nav-bg-solid: #050a12;
   --nav-active: #7c9de0;
   --nav-text: #8b949e;
   --hero-name: #7c9de0;
@@ -139,6 +141,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   /* Custom portfolio tokens */
   --color-nav-bg: var(--nav-bg);
+  --color-nav-bg-solid: var(--nav-bg-solid);
   --color-nav-active: var(--nav-active);
   --color-nav-text: var(--nav-text);
   --color-hero-name: var(--hero-name);
